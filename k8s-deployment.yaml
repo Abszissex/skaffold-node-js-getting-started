@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skaf-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: skaf-app
+  template:
+    metadata:
+      labels:
+        app: skaf-app
+    spec:
+      containers:
+        - name: skaf-app
+          image: skaf-app
+          ports:
+            - containerPort: 8080
